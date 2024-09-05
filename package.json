@@ -4,17 +4,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm rebuild bcrypt --build-from-source",
-    
+   
     "start": "node index.js"
-
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "base-64": "^1.0.0",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",

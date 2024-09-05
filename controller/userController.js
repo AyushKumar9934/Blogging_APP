@@ -1,6 +1,6 @@
 const session = require('express-session')
 const Users = require("../models/users");
-const bcrypt=require('bcrypt')
+const bcrypt=require('bcryptjs')
 exports.signup=(req,res)=>{
     res.render('signup',{message
         :null
