@@ -9,6 +9,40 @@
 
 </head>
 <body>
+    <% console.log("is Auth ",isAuthenticated); %>
     <%-include('./partials/topbar.ejs')%>
+    <div class="sort-section">
+        <label for="sort">Sort by: </label>
+        <select onchange="window.location.href='/?pages=1&sort='+this.value" id="sort">
+            <option value="title" <% if(sort==='title'){%>selected<%}%>> Title</option>
+            <option value="createdAt" <% if(sort==='createdAt'){%>selected<%}%>> Date</option>
+            
+
+        </select>
+    </div>
+    <% if(blogData.length>0) {for(let i=0;i<blogData.length;i++){ %>
+        
+        <div class="blog-card">
+            <div class="blog-title">
+             <%=blogData[i].title %>
+            </div>
+            <div class="blog-body">
+                <%=blogData[i].body %>
+
+            </div>
+            
+        </div>
+        
+        <%}}%>
+        <div class="pagination">
+            <% for (let i=1;i<=pages;i++) {%>
+                <a href="/?page=<%=i%>" <% if(i==current){%> class='activePage' <%}%>>
+                <%=i %>
+                </a>
+            <%}%>
+        </div>
+    
+
+
 </body>
 </html>

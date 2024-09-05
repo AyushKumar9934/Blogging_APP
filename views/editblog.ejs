@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit blog</title>
+    <%-include('./partials/style.ejs')%>
+  </head>
+  <body>
+    <div><%-include('./partials/topbar.ejs')%></div>
+
+    <div>
+        <h2 style="text-align: center;margin-top: 5px;">Edit Blog</h2>
+    <form action="http://localhost:3000/editblog?blogId=<%= blogData._id %>" method="post" class="blog-form">
+      <input type="text" placeholder="Enter the blog title" name="title" value="<%= blogData.title %>" />
+      <br /><br />
+      <textarea
+        name="body"
+        class="textarea"
+        placeholder="Enter blog body "
+        rows="10"
+        cols="104"
+        
+      ><%= blogData.body %></textarea
+      ><br /><br />
+      <input type="submit" value="Edit" />
+    </form>
+</div>
+    <% if(message) { console.log("checking for message") %>
+    <p><%=message%></p>
+
+    <%}%>
+  </body>
+</html>

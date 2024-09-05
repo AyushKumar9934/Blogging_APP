@@ -1,4 +1,4 @@
-
+const session = require('express-session')
 const Users = require("../models/users");
 const bcrypt=require('bcrypt')
 exports.signup=(req,res)=>{
@@ -38,14 +38,29 @@ exports.register=async (req,res)=>{
 exports.login=async(req,res)=>{
     try{
         const {email,password}=req.body;
+      
+
+        console.log("email is ",email)
+       
+        
         const existingUser=await Users.findOne({email});
+        
         if(!existingUser){
+
             return res.render('login',{message:"user not existing please signUp"})
         }
         const passwordMatch=await bcrypt.compare(password,existingUser.password);
         if(passwordMatch){
-            req.session.userId=existingUser._id;
-          res.render('home',{message:null})
+            req.session.userId = existingUser._id;
+            
+            req.session.save(err => {
+                if(err) {
+                    console.log(err);
+                    res.render('login', {message: "Server error, please try again later"});
+                } else {
+                   return  res.redirect('/home'); 
+                }
+            });      
         }
         else{
             return res.render('login',{message:"Invalid password"})
@@ -64,4 +79,9 @@ exports.allUsers=(req,res)=>{
     Users.find().then(response=>{
         res.json(response);
     }).catch(err=>res.json(err))
+}
+exports.logout=(req,res)=>{
+    req.session.destroy(()=>{
+        res.redirect('/login')
+    })
 }
