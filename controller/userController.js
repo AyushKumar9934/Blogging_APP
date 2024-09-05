@@ -1,6 +1,6 @@
 const session = require('express-session')
 const Users = require("../models/users");
-const bcryptjs=require('bcryptjs')
+const bcrypt=require('bcrypt')
 exports.signup=(req,res)=>{
     res.render('signup',{message
         :null
@@ -12,7 +12,7 @@ exports.loginPage=(req,res)=>{
 exports.register=async (req,res)=>{
     try{
         const {name,email,password}=req.body;
-        const existingUser=await Users.findOne({email});
+        const existingUser=await Users.findOne({email}); 
         if(existingUser){
          return res.render('signup',{message:"user already exits in db"})
         }
