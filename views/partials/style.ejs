@@ -30,10 +30,14 @@ a{
 .user-form{
     background-color: white;
     border: 1px solid #ddd;
-
+    display: flex;
+    flex-direction: column;
     padding:20px;
     width:300px;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 10px;
 
 }
 input{
@@ -50,7 +54,7 @@ input{
    
     padding: 10px;
     border-radius: 2px;
-    width: 10vw;
+    width: 18vw;
 }
 .btn:hover{
     background-color: #45a040;
@@ -106,7 +110,21 @@ a:hover{
 
 }
 input[type=submit]:hover{
-    background-color: #bde0bc;
+    
+    color: #007bff;
+    background-color:rgb(174, 237, 174);
+    
+}
+input[type=submit]{
+    width:80%;
+    padding:8px;
+    margin:auto;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    background-color: #89e084;
+    border: none;
+    border-radius: 5px;
+    
 }
 .add-button{
     display: block;

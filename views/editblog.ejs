@@ -11,7 +11,7 @@
 
     <div>
         <h2 style="text-align: center;margin-top: 5px;">Edit Blog</h2>
-    <form action="http://localhost:3000/editblog?blogId=<%= blogData._id %>" method="post" class="blog-form">
+    <form action="/editblog?blogId=<%= blogData._id %>" method="post" class="blog-form">
       <input type="text" placeholder="Enter the blog title" name="title" value="<%= blogData.title %>" />
       <br /><br />
       <textarea
@@ -19,7 +19,7 @@
         class="textarea"
         placeholder="Enter blog body "
         rows="10"
-        cols="104"
+        cols="100%"
         
       ><%= blogData.body %></textarea
       ><br /><br />

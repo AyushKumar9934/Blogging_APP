@@ -15,10 +15,10 @@ router.get('/',home)
 router.get('/home', home);
 
 router.get('/myblogs',myblogs)
-router.get('/addblog', addblog)
+router.get('/addblog',requireAuth, addblog)
 router.get('/editblog',editBlog);
 router.post('/createblog',createBlog)
-router.get('/deleteblog',deleteBlog);
+router.get('/deleteblog',requireAuth,deleteBlog);
 router.post('/editblog',postEditBlog);
 
 module.exports=router;
