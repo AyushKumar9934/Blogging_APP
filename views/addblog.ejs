@@ -10,7 +10,7 @@
     <div><%-include('./partials/topbar.ejs')%></div>
 
     <div>
-        <h2 style="text-align: center;margin-top: 5px;">Edit Blog</h2>
+        <h2 style="text-align: center;margin-top: 5px;">Add Blog</h2>
     <form action="/createblog" method="post" class="blog-form">
       <input type="text" placeholder="Enter the blog title" name="title" />
       <br /><br />
@@ -22,7 +22,7 @@
         cols="104"
       ></textarea
       ><br /><br />
-      <input type="submit" value="Edit" />
+      <input type="submit" value="Add" />
     </form>
 </div>
     <% if(message) { console.log("checking for message") %>
